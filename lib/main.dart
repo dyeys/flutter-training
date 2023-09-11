@@ -6,6 +6,8 @@ void main() {
 
  class MyApp extends StatelessWidget {
   const MyApp({super.key});
+  
+  get onPressed => null;
 
   @override
   Widget build(BuildContext context) {
@@ -13,41 +15,44 @@ void main() {
       debugShowCheckedModeBanner: false,
       title: 'To-Do List',
       home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 70, 68, 151),
-         body: Center(
-          child: Text('To Do: ', 
-          style: TextStyle(fontSize: 40,
-          color: Colors.white
+        backgroundColor: Color.fromARGB(255, 146, 209, 254),
+         body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 100.0,
+              width: 500.0,
+              child: Center(
+              child: Text('TODOAPP',
+                style: TextStyle(fontSize: 40.0),
+              ),
             ),
-          ),
-          
-        ),
-          
-
-        floatingActionButton: FloatingActionButton(
-          elevation: 20.0,
-          child: const Icon(Icons.add),
-          onPressed: (){
-          }
+            ),
+            SizedBox(
+              height: 100.0,
+              width: 350.0,
+              child: Center(
+              child: TextField(
+                obscureText: false,
+                  decoration: InputDecoration(
+                    border: OutlineInputBorder(),
+                    labelText: 'Input Here',                      
+                          ),  
+                        ),
+                      ),
+                    ),
+            Container(
+              height: 50.0,
+              width: 200.0,
+              child: ElevatedButton(onPressed: onPressed, 
+                child: Text('SAVE',
+                  style: TextStyle(fontSize: 20.0),
+              ),
+            ),
+            ),
+         ],
+         )
         ),       
-        bottomNavigationBar: BottomNavigationBar(
-          currentIndex: 0,
-          items: [
-            BottomNavigationBarItem(
-              label: "Home",
-              icon: Icon(Icons.home),
-            ),
-              BottomNavigationBarItem(
-            label: "Search",
-            icon: Icon(Icons.search),
-          ),
-          ],
-          onTap: (int indexOfItem) {},
-        ),
- 
-
-      ),
-    );
-
+        );
   }
 }
